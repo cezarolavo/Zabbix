@@ -4,18 +4,18 @@ packetbeat.interfaces.internal_networks:
 
 packetbeat.flows:
   timeout: 30s
-  period: 30s
+  period: 60s
 packetbeat.protocols:
 - type: icmp
   enabled: true
-- type: dhcpv4
-  ports: [67, 68]
+#- type: dhcpv4
+#  ports: [67, 68]
 - type: dns
   ports: [53]
 - type: http
   ports: [80, 8080, 8000, 5000, 8002]
-- type: nfs
-  ports: [2049]
+#- type: nfs
+#  ports: [2049]
 - type: tls
   ports:
     - 443   # HTTPS
