@@ -83,9 +83,6 @@ packetbeat.protocols:
     - 8883  # Secure MQTT
     - 9243  # Elasticsearch
 
-- type: zabbix
-  ports: [10050,10051]
-
 setup.template.settings:
   index.number_of_shards: 0
 tags: [probe_zabbix]
