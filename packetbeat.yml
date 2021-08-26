@@ -1,13 +1,12 @@
 packetbeat.interfaces.device: any
-packetbeat.interfaces.type: af_packet
-packetbeat.interfaces.buffer_size_mb: 100
+packetbeat.interfaces.type: pcap
+packetbeat.interfaces.buffer_size_mb: 30
 
 packetbeat.interfaces.internal_networks:
   - private
 
 packetbeat.flows:
-  # Set network flow timeout. Flow is killed if no packet is received before being
-  # timed out.
+  # Set network flow timeout. Flow is killed if no packet is received before being timed out.
 timeout: 30s
   # Configure reporting period. If set to -1, only killed flows will be reported
 period: 30s
