@@ -1,6 +1,6 @@
 packetbeat.interfaces.device: any
 packetbeat.interfaces.type: pcap
-packetbeat.interfaces.buffer_size_mb: 30
+packetbeat.interfaces.buffer_size_mb: 100
 
 packetbeat.interfaces.internal_networks:
   - private
