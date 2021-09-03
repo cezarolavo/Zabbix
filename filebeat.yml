@@ -16,7 +16,7 @@ filebeat.config.modules:
   path: ${path.config}/modules.d/*.yml
   reload.enabled: false
 setup.template.settings:
-  index.number_of_shards: 0
+  index.number_of_shards: 1
 output.logstash:
   hosts: ["10.192.6.53:5044"]
 processors:
