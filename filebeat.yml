@@ -10,6 +10,7 @@ filebeat.inputs:
     - /var/log/mysql/*.log
     - /var/log/httpd/*.log
     - /var/log/nginx/*.log
+    - /var/log/grafana/*.log    
     
 filebeat.config.modules:
   path: ${path.config}/modules.d/*.yml
