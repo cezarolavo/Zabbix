@@ -3,6 +3,7 @@ filebeat.inputs:
   enabled: true
   paths:
     - /var/log/*.log
+    - /var/log/audit/*.log
     - /var/log/firewalld
     - /var/log/messages
     - /var/log/secure
