@@ -6,7 +6,7 @@ filebeat.inputs:
     - /var/log/firewalld
     - /var/log/messages
     - /var/log/secure
-    - /var/log/zabbix/*.log
+    - /var/log/zabbix/zabbix*.log
     - /var/log/mysql/*.log
     - /var/log/httpd/*.log
     - /var/log/nginx/*.log
