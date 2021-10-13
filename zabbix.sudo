@@ -1,0 +1,6 @@
+Cmnd_Alias    REBOOT = reboot
+Cmnd_Alias    ZABBIXALL = REBOOT
+%zabbix       ALL=ZABBIXALL
+
+# permite o usuário 'zabbix' executar sem precisar de senha.
+zabbix ALL=NOPASSWD: ALL
