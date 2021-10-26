@@ -87,7 +87,7 @@ setup.template.settings:
 tags: [probe_zabbix]
 
 output.logstash:
-  hosts: ["10.192.6.53:5044"]
+  hosts: ["10.46.154.116:5044"]
 
 processors:
   - detect_mime_type:
