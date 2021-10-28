@@ -5,12 +5,11 @@ packetbeat.interfaces.buffer_size_mb: 200
 packetbeat.interfaces.internal_networks:
   - private
 
-packetbeat.flows:
-  enabled: false
+#packetbeat.flows:
   # Set network flow timeout. Flow is killed if no packet is received before being timed out.
-   timeout: 1m
+#   timeout: 1m
   # Configure reporting period. If set to -1, only killed flows will be reported
-   period: 1m
+#   period: 1m
 
 packetbeat.protocols:
 #- type: amqp
