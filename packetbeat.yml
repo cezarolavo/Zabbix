@@ -88,6 +88,8 @@ tags: [probe_zabbix]
 
 output.logstash:
   hosts: ["10.46.154.116:5044"]
+  worker: 1
+  compression_level: 3
 
 processors:
   - detect_mime_type:
@@ -97,4 +99,11 @@ processors:
       field: http.response.body.content
       target: http.response.mime_type
       
-logging.level: warning
+logging.level: info
+logging.to_files: true
+logging.files:
+  path: /var/log/packetbeat
+  name: packetbeat
+  keepfiles: 1
+  rotateeverybytes: 50485760 # = 50MB
+  permissions: 0644
