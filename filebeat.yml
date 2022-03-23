@@ -19,7 +19,7 @@ filebeat.config.modules:
 setup.template.settings:
   index.number_of_shards: 0
 output.logstash:
-  hosts: ["10.46.154.116:5044"]
+  hosts: ["10.221.113.147:5044"]
 processors:
   - add_host_metadata:
       when.not.contains.tags: forwarded
