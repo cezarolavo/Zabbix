@@ -4,6 +4,7 @@ filebeat.inputs:
   paths:
     - /var/log/*.log
     - /var/log/audit/*.log
+    - /var/log/tuned/*.log
     - /var/log/firewalld
     - /var/log/messages
     - /var/log/secure
@@ -11,19 +12,27 @@ filebeat.inputs:
     - /var/log/mysql/*.log
     - /var/log/httpd/*.log
     - /var/log/nginx/*.log
+    - /var/log/httpd/*.log
     - /var/log/grafana/*.log    
+    - /var/log/postgres/*.log    
     
 filebeat.config.modules:
   path: ${path.config}/modules.d/*.yml
-  reload.enabled: false
+  reload.enabled: true
+  reload.period: 10m
+
 setup.template.settings:
   index.number_of_shards: 0
+
 output.logstash:
-  hosts: ["10.221.113.147:5044"]
+  hosts: ["10.46.154.116:5044"]
+
 processors:
   - add_host_metadata:
       when.not.contains.tags: forwarded
   - add_cloud_metadata: ~
   - add_docker_metadata: ~
   - add_kubernetes_metadata: ~
-logging.level: warning
+
+logging.level: info
+monitoring.enabled: false
