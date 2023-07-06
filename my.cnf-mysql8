@@ -1,0 +1,100 @@
+[mysqld]
+#
+max-connections = 200
+max_connections = 200
+socket=/var/lib/mysql/mysql.sock
+character-set-server=UTF8MB4
+collation-server=utf8mb4_general_ci
+pid-file=/var/run/mysqld/mysqld.pid
+datadir=/opt/data/mysql
+
+# Engine
+default-storage-engine  = InnoDB
+#
+# Listening IP
+bind-address            = 127.0.0.1
+port                    = 3306
+#
+# Safety
+max-connect-errors      = 10000
+max_allowed_packet      = 128M
+skip-name-resolve
+sysdate-is-now          = 1
+#
+wait_timeout            = 1800
+interactive_timeout     = 14400
+connect_timeout         = 1800
+net_read_timeout        = 1800
+net_write_timeout       = 1800
+
+#
+# Buffers
+sort_buffer_size        = 512M
+read_buffer_size        = 512M
+join_buffer_size        = 512M
+read_rnd_buffer_size    = 512M
+key_buffer_size         = 256M
+
+# MyISAM
+key-buffer-size         = 256M
+myisam_sort_buffer_size = 64M
+
+# CACHES AND LIMITS #
+tmp-table-size          = 1G
+max-heap-table-size     = 8G
+
+thread-cache-size       = 20
+thread_stack            = 256K
+open-files-limit        = 65535
+table-definition-cache  = 1024
+table-open-cache        = 2048
+
+#
+# Bin logs
+# binlog-format           = ROW
+# log-bin                 = /var/lib/mysql/mysql-bin
+# log-slave-updates       = 1
+# expire-logs-days        = 5
+# sync-binlog             = 1
+max_binlog_size         = 100M
+skip-log-bin
+
+#
+# InnoDB
+innodb-buffer-pool-size         = 1G
+innodb_buffer_pool_instances    = 8
+#innodb_additional_mem_pool_size = 100M
+innodb_log_buffer_size          = 64M
+innodb_redo_log_capacity        = 100M
+innodb-file-per-table           = 1
+innodb-lock-wait-timeout        = 120
+innodb_thread_concurrency       = 0
+innodb_read_io_threads          = 4
+innodb_write_io_threads         = 4
+#
+# With virtual synchrony redundancy, make write queries faster
+innodb_doublewrite              = 1
+sync_binlog                     = 1
+innodb-flush-log-at-trx-commit  = 1
+innodb-flush-method             = O_DIRECT
+
+#
+# This is a recommended tuning variable for performance
+#innodb_locks_unsafe_for_binlog  = 1
+#
+# LOGGING
+general_log_file                = /var/log/mysql/mysql.log
+log-error                       = /var/log/mysql/mysql.log
+log-queries-not-using-indexes   = 1
+slow-query-log                  = 1
+long-query-time                 = 10
+slow_query_log_file             = /var/log/mysql/slow-query.log
+
+log-queries-not-using-indexes   = 1
+innodb-print-all-deadlocks      = 1
+log-throttle-queries-not-using-indexes=1
+
+log_bin_trust_function_creators = 1
+
+sql_mode = STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION
+!includedir /etc/my.cnf.d/
